@@ -19,7 +19,6 @@ public class Game {
     private boolean quitMove;
     private boolean quit;
 
-    private boolean movesRemaining;
     private boolean won;
 
     private boolean playAgain;
@@ -56,7 +55,6 @@ public class Game {
 
             quit = false;
 
-            movesRemaining = true;
             won = false;
 
             playAgain = false;
@@ -78,9 +76,8 @@ public class Game {
                 }
 
                 won = hasWon();
-                movesRemaining = movesRemaining();
 
-                if (quit || won || !movesRemaining) {
+                if (quit || won) {
                     break;
                 }
 
@@ -98,9 +95,11 @@ public class Game {
                 System.out.println("\nLame.\n");
             }
 
+            /*
             else if (!movesRemaining) {
                 System.out.println("\nYou lost to yourself - congratulations!\n");
             }
+             */
 
             else {
                 System.out.println("\nYou won! Nice job.\n");
@@ -132,7 +131,7 @@ public class Game {
         if (scanInput.hasNextInt()) {
             moveNum = scanInput.nextInt();
 
-            if (moveNum == 1 && cardDeck.getNumCardsInDeck() == 0) {
+            if (moveNum == 1 && cardDeck.isEmpty()) {
                 throw new Exception("Drawing a card is no longer an option. Try again. ");
             }
 
@@ -144,7 +143,7 @@ public class Game {
             runPlayerMove(moveNum);
         }
         else if (userInput.equals("o")) {
-            if (cardDeck.getNumCardsInDeck() != 0) {
+            if (!cardDeck.isEmpty()) {
                 System.out.println("You can choose 1 or 2 to do the following: ");
                 System.out.println("     1) Flip over a new card");
                 System.out.println("     2) Move an existing card");

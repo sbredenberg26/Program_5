@@ -41,6 +41,10 @@ public class Deck {
         cardDeck.add(c);
     }
 
+    public boolean isEmpty() {
+        return cardDeck.isEmpty();
+    }
+
     /**
      * Shuffles the card deck.
      */
