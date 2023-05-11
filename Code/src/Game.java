@@ -261,7 +261,8 @@ public class Game {
                                 stack.addLast(piles[fromPileNum].getCard(i));
                             }
 
-                            System.out.println("\n" + stack + "\n");
+                            //We think this is a test statement...
+                            //System.out.println("\n" + stack + "\n");
 
                             checkMoveTo(stack, userInput);
                         }
