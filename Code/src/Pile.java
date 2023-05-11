@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 /**
- * The Pile class creates and manages each of the 7 piles
+ * The Pile creates and manages each of the 7 piles individually
  */
 public class Pile {
 
