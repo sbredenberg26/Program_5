@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * ...
+ * This is the class that creates a deck of cards
  */
 public class Deck {
 
