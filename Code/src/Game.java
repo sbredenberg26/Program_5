@@ -123,8 +123,8 @@ public class Game {
 
     /**
      * Ensures that the user's next move is, in fact, a move
-     * @param userInput
-     * @throws Exception
+     * @param userInput what the user wants to do
+     * @throws Exception if it's not a valid move
      */
     public void checkPlayerMove(String userInput) throws Exception {
         Scanner scanInput = new Scanner(userInput);
@@ -155,7 +155,7 @@ public class Game {
 
     /**
      * Draws a new card or prepares to move a card, as appropriate
-     * @param moveNum
+     * @param moveNum the number of the move desired
      */
     public void runPlayerMove(int moveNum) {
         if (moveNum == 1) {
