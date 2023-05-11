@@ -49,7 +49,7 @@ public class FoundationPile extends Pile {
     @Override
     public void addCard(Card c) throws Exception {
         if (!suit.equals(c.getSuit())) {
-            throw new Exception("That doesn't look like a " + suit.toLowerCase() + " to me. The " + c.toString().toLowerCase() + " does not belong in the "
+            throw new Exception("That doesn't look like a " + suit.toLowerCase() + " to me. The " + c.toString() + " does not belong in the "
                     + suit.toLowerCase() + " foundation pile. Try again.");
         }
         else if (c.getRank() == 0 && getNumCardsInPile() == 0) {
