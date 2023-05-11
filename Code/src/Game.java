@@ -357,7 +357,7 @@ public class Game {
                 throw new Exception(e.getMessage());
             }
 
-            System.out.println("Added the " + card + " to pile " + (toPileNum + 1) + "");
+            System.out.println("Added the " + card + " to pile " + (toPileNum + 1) + ".");
         }
 
         else if (userInput.equals("o")) {
