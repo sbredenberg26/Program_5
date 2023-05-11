@@ -132,6 +132,10 @@ public class Game {
         if (scanInput.hasNextInt()) {
             moveNum = scanInput.nextInt();
 
+            if (moveNum == 1 && cardDeck.getNumCardsInDeck() == 0) {
+                throw new Exception("Drawing a card is no longer an option. Try again. ");
+            }
+
             if (moveNum < 1 || moveNum > 2) {
                 throw new Exception("That is not a valid move number, you must enter either"
                         + " 1 or 2. Try again.");
@@ -140,9 +144,15 @@ public class Game {
             runPlayerMove(moveNum);
         }
         else if (userInput.equals("o")) {
-            System.out.println("You can choose 1 or 2 to do the following: ");
-            System.out.println("     1) Flip over a new card");
-            System.out.println("     2) Move an existing card");
+            if (cardDeck.getNumCardsInDeck() != 0) {
+                System.out.println("You can choose 1 or 2 to do the following: ");
+                System.out.println("     1) Flip over a new card");
+                System.out.println("     2) Move an existing card");
+            }
+            else {
+                System.out.println("Looks like you're out of cards. Now, your only"
+                        + " option is to enter 2 to move an existing card. ");
+            }
             throw new Exception("If you want to quit, enter 'q'. So, what will it be?");
         }
         else if (userInput.equals("q")) {
@@ -355,9 +365,9 @@ public class Game {
                     + "or add the card to a foundation by entering 'F1', 'F2', 'F3', or 'F4'."
                     + " These values correspond respectively to spades, hearts, diamonds, and clubs. ");
             if (moveNum == 1) {
-                System.out.print("You may also choose to discard the card by inputting 'd', or "
-                        + " quit using 'q'. ");
+                System.out.print("You may also choose to discard the card by inputting 'd'. ");
             }
+            System.out.print("As always, you can enter 'q' to quit. ");
             throw new Exception("So, your move?");
         }
 
@@ -368,6 +378,10 @@ public class Game {
         else if(userInput.equals("d") && moveNum == 1) {
             System.out.println("Discarded. ");
             cardDeck.addCard(card);
+        }
+
+        else if (userInput.equals("")) {
+            throw new Exception("That was literally nothing. Try again. ");
         }
 
         else if (userInput.charAt(0) == 'F') {
@@ -398,6 +412,7 @@ public class Game {
         else {
             throw new Exception("That was neither a pile number nor a foundation call. Try again.");
         }
+
     }
 
     /**
